@@ -7,7 +7,7 @@ Na pasta "./Notas Fiscais para teste" tem algumas notas fiscais para teste.
 O arquivo gerado contém os códigos de barras;quantidade para criação da Nota fiscal de Transferência pela importação do arquivo.
 Os arquivos são criados separadamente por estabelecimento de acordo com as quantidades inseridas.
 
-Versão do PHP
+Versão do PHP</br>
     Version 7.4.23.0
 
 Configurar o "php.ini" do PHP na pasta C:\xampp\php:
@@ -42,10 +42,10 @@ Na rota /transferir.html, recebe o parâmetro ?nfe={Numero da NFe/Série} para e
     Lista de Produtos da Nota Fiscal com as quantidades do Estoque, adicionar individualmente as quantidades para serem transferidas para as filiais.
     Alterar código de barras para mudar as associações com a Emissão da Nota Fiscal no Sistema de ERP.
 
-            Será possível salvar todas as informações inseridas antes de gerar a transferência para caso queira efetuar mais tarde.
-                É salvo no Banco de Dados em SQLite3 para manter registros e logs das transferências.
-            Gerar transferência irá criar arquivos de .txt nas pastas separadamente por estabelecimento e data.
-            Caso as quantidades superem a do estoque de entrada, será necessário inserir a senha para permitir a transferência.
+Será possível salvar todas as informações inseridas antes de gerar a transferência para caso queira efetuar mais tarde.
+    É salvo no Banco de Dados em SQLite3 para manter registros e logs das transferências.
+Gerar transferência irá criar arquivos de .txt nas pastas separadamente por estabelecimento e data.
+Caso as quantidades superem a do estoque de entrada, será necessário inserir a senha para permitir a transferência.
 
-            Senha para permitir quantidades superiores: 142536
+Senha para permitir quantidades superiores: 142536
 
