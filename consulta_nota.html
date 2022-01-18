@@ -1,0 +1,88 @@
+<html>
+    <header>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel='shortcut icon' type='image/x-icon' href='src/assets/favicon.ico'/>
+        <link rel="stylesheet" href="./src/css/consulta_nota.css">
+        <meta charset="utf-8">
+        <title>Transferências - Consulta Notas</title>
+    </header>
+    <body>
+        <div class="container">
+            <div class="header"></div>
+            <div class="container-centered">
+                <div class="notas_fiscais">
+                    <div class="cabecalho_tab">
+                        <ul class="tabs tabs-fixed-width">
+                        <li class="tab col s3"><a class="btn-importadas active" href="#notas_pendentes">NOTAS FISCAIS PENDENTES<div class="bg_notify_pendentes" style="display:none;"><span class="text_notify_pendentes"></span></div></a></li>
+                        <li class="tab col s3"><a class="btn-ignoradas" href="#notas_transferidas">NOTAS FISCAIS TRANSFERIDAS<div class="bg_notify_transferidas" style="display:none;"><span class="text_notify_transferidas"></span></div></a></li>
+                        </ul>
+                    </div>
+                    <div id="notas_pendentes" class="s12">
+                        <div class="notas_pendentes load">
+                            <div class="mensagem_content">
+                                <div class="preloader-wrapper big active">
+                                    <div class="spinner-layer spinner-blue">
+                                        <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                        </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                        </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                        </div>
+                                    </div>
+                                    <div class="spinner-layer spinner-red">
+                                        <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                        </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                        </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                        </div>
+                                    </div>
+                                    <div class="spinner-layer spinner-yellow">
+                                        <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                        </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                        </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                        </div>
+                                    </div>
+                                    <div class="spinner-layer spinner-green">
+                                        <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                        </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                        </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nenhuma_pendente" style="display:none;">
+                            <div class="mensagem_content">
+                                <span class="mensagem_importada">NENHUMA NOTA FISCAL PENDENTE PARA TRANSFERÊNCIA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="notas_transferidas" class="s12">
+                        <div class="nenhuma_transferida" style="display:none;">
+                            <div class="mensagem_content">
+                                <span class="mensagem_transferida">NENHUMA NOTA FISCAL FOI TRANSFERIDA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer"></div>
+
+        </div>
+    </body>
+    <footer>
+        <script type="text/javascript" src="src/js/jQuery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+        <script type="text/javascript" src="src/js/consulta_nota.js"></script>
+    </footer>
+</html>

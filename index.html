@@ -1,0 +1,352 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel='shortcut icon' type='image/x-icon' href='src/assets/favicon.ico'/>
+<meta charset="utf-8">
+<style>
+
+    .notas_duplicadas, .notas_importadas, .arquivos_rejeitados {
+        margin-bottom: 20px;
+    }
+
+    #modal_erro {
+        width: 395px !important;
+        top: 30% !important;
+    }
+    .footer_modal {
+        display: flex;
+        flex-direction: column; 
+        margin-top: 15px;
+    }
+
+    body {
+        background: #f5f5f5;
+    }
+
+    input {
+        font-size: 12px !important;
+    }
+
+    .lista {
+        margin-top: 10px;
+        display: grid;
+        justify-items: center;
+    }
+
+    .notas_importadas {
+        border-width: 2px;
+        border-style: solid;
+        border-color: #26a69a85;
+        border-radius: 5px;
+        min-width: 580px;
+        max-width: 1050px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .notas_duplicadas {
+        border-width: 2px;
+        border-style: solid;
+        border-color: #ffad00;
+        border-radius: 5px;
+        min-width: 580px;
+        max-width: 1050px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .arquivos_rejeitados {
+        border-width: 2px;
+        border-style: solid;
+        border-color: #ef9599;
+        border-radius: 5px;
+        min-width: 580px;
+        max-width: 1050px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .loja_importada {
+        margin-top: 10px;
+        color: #629a95;
+    }
+
+    .loja_duplicadas {
+        margin-top: 10px;
+        color: #ffad00;
+    }
+    .loja_rejeitados {
+        margin-top: 10px;
+        color: #ef9599;
+    }
+
+    .nenhuma_importada {
+        border-width: 2px;
+        border-style: solid;
+        border-color: #26a69a85;
+        border-radius: 5px;
+        min-width: 580px;
+        max-width: 1050px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        height: 120px;
+        justify-content: center;
+    }
+    .nenhuma_duplicadas {
+        border-width: 2px;
+        border-style: solid;
+        border-color: #ffad00;
+        border-radius: 5px;
+        min-width: 580px;
+        max-width: 1050px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        height: 120px;
+        justify-content: center;
+    }
+    .nenhuma_rejeitados {
+        border-width: 2px;
+        border-style: solid;
+        border-color: #ef9599;
+        border-radius: 5px;
+        min-width: 580px;
+        max-width: 1050px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        height: 120px;
+        justify-content: center;
+    }
+    .mensagem_importada {
+        color: #26a69a;
+    }
+    .mensagem_duplicadas{
+        color: #ffad00;
+    }
+    .mensagem_rejeitados {
+        color: #ef9599;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        height: 60px;
+        margin-top: 10px !important;
+        margin-bottom: 15px !important;
+    }
+    .rejeitados-content {
+        display: flex;
+        flex-direction: row;
+        height: 60px;
+        margin-top: 10px !important;
+        margin-bottom: 15px !important;
+        width: 540px;
+    }
+
+    .header {
+        width: 580px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .tab-content {
+        width: 580px;
+        margin-top: 10px;
+    }
+
+    a {
+        background-color: #f2f1f1;
+    }
+    .tabs .tab a {
+        padding: 0px !important;
+    }
+
+    .btn-importadas {
+        color: #26a69a !important;
+    }
+    .btn-duplicadas {
+        color: #ffad00 !important;
+    }
+    .btn-rejeitados {
+        color: #ef9599 !important;
+    }
+
+    a.active {
+        background-color: #ffffff;
+    }
+
+    .tabs .tab a:hover, .tabs .tab a.active {
+        background-color: #efeeee !important;
+        /* color: #ee6e73 !important; */
+    }
+
+    .indicator {
+        background-color: #26a69a !important;
+    }
+    .indicator_duplicadas {
+        background-color: #ffad00 !important;
+    }
+    .indicator_rejeitados {
+        background-color: #ef9599 !important;
+    }
+
+    .bg_notify_importados {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: #26a69a;
+        margin: 11px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transform: translate(160px, -48px);
+    }
+    .text_notify_importados {
+        position: relative;
+        color: white;
+        transform: translate(0px, -12px);
+        font-size: 12px;
+    }
+    .bg_notify_duplicadas {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: #ffad00;
+        margin: 11px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transform: translate(160px, -48px);
+    }
+    .text_notify_duplicadas {
+        position: relative;
+        color: white;
+        transform: translate(0px, -12px);
+        font-size: 12px;
+    }
+    .bg_notify_rejeitados {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: #ef9599;
+        margin: 11px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transform: translate(120px, -48px);
+    }
+    .text_notify_rejeitados {
+        position: relative;
+        color: white;
+        transform: translate(0px, -12px);
+        font-size: 12px;
+    }
+
+    input:not([type]):disabled, input:not([type])[readonly="readonly"], input[type=text]:not(.browser-default):disabled, input[type=text]:not(.browser-default)[readonly="readonly"], input[type=password]:not(.browser-default):disabled, input[type=password]:not(.browser-default)[readonly="readonly"], input[type=email]:not(.browser-default):disabled, input[type=email]:not(.browser-default)[readonly="readonly"], input[type=url]:not(.browser-default):disabled, input[type=url]:not(.browser-default)[readonly="readonly"], input[type=time]:not(.browser-default):disabled, input[type=time]:not(.browser-default)[readonly="readonly"], input[type=date]:not(.browser-default):disabled, input[type=date]:not(.browser-default)[readonly="readonly"], input[type=datetime]:not(.browser-default):disabled, input[type=datetime]:not(.browser-default)[readonly="readonly"], input[type=datetime-local]:not(.browser-default):disabled, input[type=datetime-local]:not(.browser-default)[readonly="readonly"], input[type=tel]:not(.browser-default):disabled, input[type=tel]:not(.browser-default)[readonly="readonly"], input[type=number]:not(.browser-default):disabled, input[type=number]:not(.browser-default)[readonly="readonly"], input[type=search]:not(.browser-default):disabled, input[type=search]:not(.browser-default)[readonly="readonly"], textarea.materialize-textarea:disabled, textarea.materialize-textarea[readonly="readonly"] {
+    color: rgb(0 0 0 / 55%) !important;
+    }
+
+    .container {
+        margin: 0px auto;
+    }
+</style>
+<html>
+    <header>
+        <title>Transferências - Página Inicial</title>
+    </header>
+    <body>
+        <div class="container">
+            <div class="lista">
+                <div class="header"></div>
+                <div class="tab-content">
+                    <div class="col s12">
+                        <ul class="tabs tabs-fixed-width">
+                        <li class="tab col s3"><a class="btn-importadas active" href="#notas_importadas">NF-e importadas<div class="bg_notify_importados" style="display:none;"><span class="text_notify_importados"></span></div></a></li>
+                        <li class="tab col s3"><a class="btn-duplicadas" href="#notas_duplicadas">NF-e duplicadas<div class="bg_notify_duplicadas" style="display:none;"><span class="text_notify_duplicadas"></span></div></a></li>
+                        <li class="tab col s3"><a class="btn-rejeitados" href="#arquivos_rejeitados">Rejeitadas<div class="bg_notify_rejeitados" style="display:none;"><span class="text_notify_rejeitados"></span></div></a></li>
+                        </ul>
+                    </div>
+                    <div id="notas_importadas" class="s12">
+                        <div class="nenhuma_importada load">
+                            <div class="mensagem_content">
+                                <div class="preloader-wrapper big active">
+                                    <div class="spinner-layer spinner-blue">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                    </div>
+                                    <div class="spinner-layer spinner-red">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                    </div>
+                                    <div class="spinner-layer spinner-yellow">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                    </div>
+                                    <div class="spinner-layer spinner-green">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nenhuma_importada" style="display:none;">
+                            <div class="mensagem_content">
+                                <span class="mensagem_importada">NENHUMA NOTA FISCAL PENDENTE PARA IMPORTAÇÃO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="notas_duplicadas" class="s12">
+                        <div class="nenhuma_duplicadas" style="display:none;">
+                            <div class="mensagem_content">
+                                <span class="mensagem_duplicadas">NENHUMA NOTA FISCAL IGNORADA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="arquivos_rejeitados" class="s12">
+                        <div class="nenhuma_rejeitados" style="display:none;">
+                            <div class="mensagem_content">
+                                <span class="mensagem_rejeitados">NENHUMA NOTA FISCAL IGNORADA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </body>
+    <footer>
+        <script type="text/javascript" src="src/js/jQuery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+        <script type="text/javascript" src="src/js/index.js"></script>
+    </footer>
+</html>
