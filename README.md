@@ -49,3 +49,5 @@ Caso as quantidades superem a do estoque de entrada, será necessário inserir a
 
 Senha para permitir quantidades superiores: 142536
 
+![screenshot](https://i.imgur.com/OO4ZMuY.png)
+
