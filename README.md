@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/072bfad6-c56d-4a10-b5b1-d50ff79ee129)Sistema de Transferência de Mercadoria.
+Sistema de Transferência de Mercadoria.
 Implementado para Papelaria Bazar Opção com 5 lojas e Centro de Distribuição, o sistema consiste em gerar um arquivo.txt com todas as informações para serem importadas pelo sistema de ERP da Getway Automação e emitir Nota fiscal de Transferência.
 
 As notas fiscais que são importadas são emitidas no Sistema de ERP depois de realizado a Entrada de Estoque internamente, após isso é emitido um relatório e salvo em formato XLS para compatibilidade do Sistema de Transferência.
